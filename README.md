@@ -1,2 +1,2 @@
 # mongomin
-Mongo DB Admin by [SymaticSolutions](http://symaticsolutions.com?ref=monogomin-github "Symatic Solutions")
+Mongo DB Admin by [Symatic Solutions](http://symaticsolutions.com?ref=monogomin-github "Symatic Solutions")
