@@ -1,0 +1,48 @@
+{
+  "name": "mongomin",
+  "version": "0.0.1",
+  "description": "Mongodb Admin By Symatic Solutions",
+  "main": "mongomin.js",
+  "scripts": {
+    "start": "node mongomin.js",
+  },
+  "author": {
+    "name": "Symatic Solutions",
+    "email": "info@symaticsolutions.com",
+    "url": "http://symaticsolutions.com/"
+  },
+  "maintainers": [
+    {
+      "name": "Saurin Dashadia",
+      "email": "me@saur.in",
+      "url": "http://saur.in/"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Saurin Dashadia",
+      "email": "me@saur.in",
+      "url": "http://saur.in/"
+    }
+  ],
+  "keywords": [
+    "mongo",
+    "mongo-db",
+    "database-admin",
+    "admin-ui",
+    "admin-panel",
+    "mongo-db-tool"
+  ],
+  "homepage": "http://symaticsolutions.github.io/mongomin/",
+  "bugs": {
+    "url": "https://github.com/SymaticSolutions/mongomin/issues/"
+  },
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SymaticSolutions/mongomin.git"
+  },
+  "dependencies": {
+    "angular-material": "^1.0.6"
+  }
+}
