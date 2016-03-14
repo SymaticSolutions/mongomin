@@ -4,7 +4,7 @@
   "description": "Mongodb Admin By Symatic Solutions",
   "main": "mongomin.js",
   "scripts": {
-    "start": "node mongomin.js",
+    "start": "node mongomin.js"
   },
   "author": {
     "name": "Symatic Solutions",
@@ -43,6 +43,8 @@
     "url": "https://github.com/SymaticSolutions/mongomin.git"
   },
   "dependencies": {
-    "angular-material": "^1.0.6"
+    "angular-material": "^1.0.6",
+    "chalk": "^1.1.1",
+    "express": "^4.13.4"
   }
 }
