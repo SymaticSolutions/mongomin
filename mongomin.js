@@ -8,34 +8,60 @@
 var MongoClient = require('mongodb').MongoClient;
 var chalk = require('chalk');
 var fs = require('fs');
+var prompt = require('prompt');
+var mongomin = require('./utility');
 
-console.log(chalk.green("> Mongomin Running"));
 
-fs.exists('config.json',function(res){
-    if(res === false){
-        console.log(chalk.red("> Config file missing"));
-        var prompt = require('prompt');
+console.log(chalk.green.bold("> Mongomin Started."));
 
-        prompt.message = "mongomin";
+if(fs.existsSync('config.json')){
+    console.log(chalk.red("> Configuration file missing."));
+    console.log("> Getting connection parameters.\n");
 
-        prompt.start();
+    prompt.message = chalk.green.bold("mongomin");
 
-        prompt.get({
-            properties: {
-                firsttime: {
-                    description: chalk.blue("Are you using ")
-                }
+    prompt.start();
+
+    prompt.get({
+        properties: {
+            host: {
+                description: chalk.blue("mongoDB Host Name"),
+                default: '127.0.0.1'
+            },
+            port: {
+                description: chalk.blue("mongoDB Port"),
+                default: '27017'
+            },
+            username: {
+                description: chalk.blue("mongoDB Username"),
+                default: ''
+            },
+            password: {
+                description: chalk.blue("mongoDB Password"),
+                default: ''
             }
-        }, function (err, result) {
-            console.log(colors.cyan("You said your name is: " + result.name));
-        });
+        }
+    }, function (err, data) {
+        console.log("\n> Creating config.json file.");
 
-    }
-});
+        fs.writeFileSync('config.json', JSON.stringify(data));
+
+        mongomin.config = JSON.parse(data.toString());
+
+        console.log("> Connection parameters written to config.json file.");;
+    });
+}else{
+    console.log("> Fetching config data.");
+    var data = fs.readFileSync('config.json');
+
+    mongomin.config = JSON.parse(data.toString());
+}
+
+mongomin.init();
 
 /*
-var url = 'mongodb://localhost:27017/test';
-MongoClient.connect(url, function(err, db) {
+
+MongoClient.connect(connectionString, function(err, db) {
     assert.equal(null, err);
     console.log("Connected correctly to server.");
     db.close();
