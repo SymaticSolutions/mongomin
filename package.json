@@ -2,9 +2,9 @@
   "name": "mongomin",
   "version": "0.0.1",
   "description": "Mongodb Admin By Symatic Solutions",
-  "main": "mongomin.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node mongomin.js"
+    "start": "node app.js"
   },
   "author": {
     "name": "Symatic Solutions",
