@@ -59,13 +59,3 @@ fs.exists('config.json', function(isExist){
         });
     }
 });
-
-
-
-/*
-
-MongoClient.connect(connectionString, function(err, db) {
-    assert.equal(null, err);
-    console.log("Connected correctly to server.");
-    db.close();
-});*/
