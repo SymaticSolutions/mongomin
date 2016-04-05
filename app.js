@@ -8,7 +8,7 @@
 var chalk = require('chalk');
 var fs = require('fs');
 var prompt = require('prompt');
-var mongomin = require('./lib/core');
+var mongomin = require('./lib/mongomin');
 
 console.log(chalk.green.bold("> Mongomin Started."));
 
