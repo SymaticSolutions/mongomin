@@ -12,13 +12,17 @@ var mongomin = require('./lib/mongomin');
 
 console.log(chalk.green.bold("> Mongomin Started."));
 
+// Check if config.json file is exist.
+// If not exist create one with user inputs.
 fs.exists('config.json', function(isExist){
     if(isExist){
         fs.readFile('config.json', function(err, data){
-            mongomin.config = data.toString();
+            // Set config data to mongomin
+            mongomin.setConfig(data.toString());
 
             console.log("> Config data fetched.");
 
+            // Initialize mongomin application
             mongomin.init();
         });
     }else{
@@ -49,13 +53,15 @@ fs.exists('config.json', function(isExist){
                 }
             }
         }, function (err, data) {
-            fs.writeFileSync('config.json', JSON.stringify(data));
+            fs.writeFile('config.json', JSON.stringify(data), function(){
+                console.log("> Connection parameters written to config.json file.");
 
-            console.log("> Connection parameters written to config.json file.");
+                // Set config data to mongomin
+                mongomin.setConfig(data.toString());
 
-            mongomin.config = data.toString();
-
-            mongomin.init();
+                // Initialize mongomin application
+                mongomin.init();
+            });
         });
     }
 });
