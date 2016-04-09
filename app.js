@@ -53,11 +53,20 @@ fs.exists('config.json', function(isExist){
                 }
             }
         }, function (err, data) {
+            data = {
+                mongo: data,
+                mongomin: {
+                    isSSL: false,
+                    host: 'localhost',
+                    port: '9386'
+                }
+            };
+
             fs.writeFile('config.json', JSON.stringify(data), function(){
                 console.log("> Connection parameters written to config.json file.");
 
                 // Set config data to mongomin
-                mongomin.setConfig(data.toString());
+                mongomin.setConfig(JSON.stringify(data));
 
                 // Initialize mongomin application
                 mongomin.init();
