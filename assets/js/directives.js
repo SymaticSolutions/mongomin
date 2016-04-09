@@ -5,4 +5,4 @@
  * @copyright Copyright(c) 2016 Symatic Solutions
  */
 
-angular.module('mongomin.starter', ['mongomin.controllers', 'mongomin.services', 'mongomin.directives', 'ngMaterial']);
+angular.module('mongomin.directives', []);
