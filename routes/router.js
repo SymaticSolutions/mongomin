@@ -6,19 +6,33 @@
  */
 
 var express = require('express'),
-    router = express.Router(),
-    routHome = require('./web/home');
+    router = express.Router();
+
+// Web routes import
+var routHome = require('./web/home');
+
+// API routes import
+var apiDatabases = require('./api/databases');
 
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
     console.log('Time: ', Date.now());
     next();
 });
-// define the home page route
-router.use('/', routHome);
-// define the about route
-router.get('/api', function(req, res) {
-    res.send('mongomin about');
-});
 
+/**
+ * Web routes
+ */
+
+// Define home page route
+router.use('/', routHome);
+
+/**
+ * API routes
+ */
+
+// Define databases API route
+router.get('/api/databases', apiDatabases);
+
+// Export router
 module.exports = router;
