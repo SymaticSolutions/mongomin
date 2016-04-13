@@ -11,9 +11,6 @@ var express = require('express'),
 // Web routes import
 var routHome = require('./web/home');
 
-// API routes import
-var apiDatabases = require('./api/databases');
-
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
     console.log('Time: ', Date.now());
@@ -26,13 +23,6 @@ router.use(function timeLog(req, res, next) {
 
 // Define home page route
 router.use('/', routHome);
-
-/**
- * API routes
- */
-
-// Define databases API route
-router.get('/api/databases', apiDatabases);
 
 // Export router
 module.exports = router;
