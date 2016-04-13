@@ -5,8 +5,26 @@ html
         meta(name="viewport", content="width=device-width, initial-scale=1")
         //- Angular Material style sheet
         link(rel="stylesheet", href="/angular-material/angular-material.min.css")
+        link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
     body(ng-cloak, ng-app="mongomin.starter")
-        block content
+
+        div(ng-controller="AppCtrl", layout="column")
+            section(layout="row", flex)
+
+                //- Sidebar
+                md-sidenav(class="md-sidenav-left", md-component-id="left", md-is-locked-open="$mdMedia('gt-md')", md-disable-backdrop, md-whiteframe="1")
+                    md-toolbar(class="md-accent")
+                        h1(layout="row", layout-align="center center") mongomin
+                        p
+                            small(layout="row", layout-align="center center") Developed with&nbsp;<i class="material-icons" style="font-size:15px;">favorite</i>&nbsp;in India
+
+                    md-content(layout-padding, ng-controller="LeftCtrl")
+                        md-button(ng-click="close()", class="md-primary", hide-gt-md)
+                        p Close Sidenav Left
+                        p(hide-md show-gt-md) This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
+
+                //- Body content
+                block content
 
         //- Angular Material requires Angular.js Libraries -->
         script(src="/angular/angular.min.js")
