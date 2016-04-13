@@ -5,10 +5,10 @@
  * @copyright Copyright(c) 2016 Symatic Solutions
  */
 
-var chalk = require('chalk');
-var fs = require('fs');
-var prompt = require('prompt');
-var mongomin = require('./lib/mongomin');
+var chalk = require('chalk'),
+    fs = require('fs'),
+    prompt = require('prompt'),
+    mongomin = require('./lib/mongomin');
 
 console.log(chalk.green.bold("> Mongomin Started."));
 
