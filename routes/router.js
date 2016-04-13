@@ -7,7 +7,7 @@
 
 var express = require('express'),
     router = express.Router(),
-    routHome = require('../routes/home');
+    routHome = require('./web/home');
 
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
@@ -17,7 +17,7 @@ router.use(function timeLog(req, res, next) {
 // define the home page route
 router.use('/', routHome);
 // define the about route
-router.get('/about', function(req, res) {
+router.get('/api', function(req, res) {
     res.send('mongomin about');
 });
 
