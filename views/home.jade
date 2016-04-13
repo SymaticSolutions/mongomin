@@ -1,35 +1,25 @@
 extends layout
 
 block content
-    div(ng-controller="AppCtrl", layout="column")
-        section(layout="row", flex)
-            md-sidenav(class="md-sidenav-left", md-component-id="left", md-is-locked-open="$mdMedia('gt-md')", md-disable-backdrop, md-whiteframe="4")
-                md-toolbar(class="md-theme-indigo")
-                    h1(class="md-toolbar-tools") Sidenav Left
+    md-content(flex)
+        md-toolbar(class="md-whiteframe-glow-z1")
+            div(class="md-toolbar-tools")
+                md-button(class="md-icon-button", aria-label="Settings", ng-disabled="true")
+                    md-icon(md-svg-icon="img/icons/menu.svg")
+                h2
+                    span Toolbar with Disabled/Enabled Icon Buttons
 
-                md-content(layout-padding, ng-controller="LeftCtrl")
-                    md-button(ng-click="close()", class="md-primary", hide-gt-md)
-                    p Close Sidenav Left
-                    p(hide-md show-gt-md) This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
+                span(flex)
+                md-button(class="md-icon-button", aria-label="Favorite")
+                    md-icon(md-svg-icon="img/icons/favorite.svg", style="{color:'greenyellow'}")
+                md-button(class="md-icon-button", aria-label="More")
+                    md-icon(md-svg-icon="img/icons/more_vert.svg")
 
-            md-content(flex layout-padding)
-                div(layout="column", layout-fill, layout-align="top center")
-                    p The left sidenav will 'lock open' on a medium (>=960px wide) device.
-                    p The right sidenav will focus on a specific child element.
-                    div
-                        md-button(ng-click="toggleLeft()", class="md-primary", hide-gt-md) Toggle left
-                    div
-                        md-button(ng-click="toggleRight()", ng-hide="isOpenRight()", class="md-primary") Toggle right
-                div(flex)
-
-            md-sidenav(class="md-sidenav-right, md-whiteframe-4dp", md-component-id="right")
-                md-toolbar(class="md-theme-light")
-                    h1(class="md-toolbar-tools") Sidenav Right
-
-                md-content(ng-controller="RightCtrl", layout-padding)
-                    form
-                        md-input-container
-                            label(for="testInput") Test input
-                            input(type="text", id="testInput", ng-model="data", md-autofocus)
-
-                    md-button(ng-click="close()", class="md-primary") Close Sidenav Right
+        div(layout="column", layout-fill, layout-align="top center")
+            p The left sidenav will 'lock open' on a medium (>=960px wide) device.
+            p The right sidenav will focus on a specific child element.
+            div
+                md-button(ng-click="toggleLeft()", class="md-primary", hide-gt-md) Toggle left
+            div
+                md-button(ng-click="toggleRight()", ng-hide="isOpenRight()", class="md-primary") Toggle right
+        div(flex)
