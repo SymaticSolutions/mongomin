@@ -7,38 +7,43 @@ html
         link(rel="stylesheet", href="/angular-material/angular-material.min.css")
         link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
         link(rel="styleSheet", href="/css/style.css")
-    body(ng-cloak, ng-app="mongomin.starter")
 
-        div(layout="column")
+    body(ng-cloak, ng-app="mongomin.starter", layout="row")
+
+        //- Sidebar
+        md-sidenav(class="md-sidenav-left md-whiteframe-z2", md-component-id="leftmenu", md-is-locked-open="$mdMedia('gt-md')", md-disable-backdrop, md-whiteframe="1")
+            header(class="nav-header")
+                h1(layout="row", layout-align="center center") mongomin
+                p
+                    small(layout="row", layout-align="center center") Developed with&nbsp;<i class="material-icons" style="font-size:15px;">favorite</i>&nbsp;in India
+
+            md-content(class="_md flex")
+                md-list(ng-controller="DBListCtrl", ng-cloak)
+                    md-subheader(class="md-no-sticky") Available Databases:
+                    md-list-item(ng-repeat="db in databases")
+                        p {{db.name}}
+                        p(class="md-secondary") {{(db.sizeOnDisk/1000000).toFixed(2)}} Kb
+
+        div(layout="column", flex="", role="main")
+
+            md-toolbar(class="md-whiteframe-glow-z1")
+                div(class="md-toolbar-tools")
+                    md-button(class="md-icon-button", aria-label="Settings")
+                        md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") menu
+                    h2
+                        span Toolbar with Disabled/Enabled Icon Buttons
+
+                    span(flex)
+                    md-button(class="md-icon-button", aria-label="Favorite")
+                        md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") favorite
+                    md-button(class="md-icon-button", aria-label="More")
+                        md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") more_vert
+
+
             section(layout="row", flex)
-
-                //- Sidebar
-                md-sidenav(class="md-sidenav-left", md-component-id="left", md-is-locked-open="$mdMedia('gt-md')", md-disable-backdrop, md-whiteframe="1")
-                    md-toolbar(class="md-accent")
-                        h1(layout="row", layout-align="center center") mongomin
-                        p
-                            small(layout="row", layout-align="center center") Developed with&nbsp;<i class="material-icons" style="font-size:15px;">favorite</i>&nbsp;in India
-
-                    md-content(layout-padding)
-                        md-button(ng-click="close()", class="md-primary", hide-gt-md)
-                        p Close Sidenav Left
-                        p(hide-md show-gt-md) This sidenav is locked open on your device. To go back to the default behavior, narrow your display.
 
                 //- Body content
                 md-content(flex)
-                    md-toolbar(class="md-whiteframe-glow-z1")
-                        div(class="md-toolbar-tools")
-                            md-button(class="md-icon-button", aria-label="Settings")
-                                md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") menu
-                            h2
-                                span Toolbar with Disabled/Enabled Icon Buttons
-
-                            span(flex)
-                            md-button(class="md-icon-button", aria-label="Favorite")
-                                md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") favorite
-                            md-button(class="md-icon-button", aria-label="More")
-                                md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") more_vert
-
 
                     div(layout="column", layout-fill, layout-align="top center")
                         div(ng-view)
