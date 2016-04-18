@@ -5,4 +5,15 @@
  * @copyright Copyright(c) 2016 Symatic Solutions
  */
 
-angular.module('mongomin.starter', ['mongomin.controllers', 'mongomin.services', 'mongomin.directives', 'ngMaterial']);
+angular.module('mongomin.starter', ['mongomin.controllers', 'mongomin.services', 'mongomin.directives', 'ngMaterial', 'ngRoute'])
+    .config(function($routeProvider){
+        $routeProvider.
+            when('/test', {
+                templateUrl: '/home',
+                controller: 'HomeCtrl'
+            }).
+            otherwise({
+                templateUrl: '/home',
+                controller: 'HomeCtrl'
+            });
+    });
