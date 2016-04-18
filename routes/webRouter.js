@@ -9,11 +9,13 @@ var express = require('express'),
     router = express.Router();
 
 // Web routes import
+var routRoot = require('./web/root');
 var routHome = require('./web/home');
 
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
     console.log('Time: ', Date.now());
+    console.log('Req: ', req.url);
     next();
 });
 
@@ -21,8 +23,10 @@ router.use(function timeLog(req, res, next) {
  * Web routes
  */
 
+router.use('/', routRoot);
+
 // Define home page route
-router.use('/', routHome);
+router.use('/home', routHome);
 
 // Export router
 module.exports = router;
