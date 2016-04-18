@@ -40,26 +40,11 @@ html
                                 md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") more_vert
 
 
-                    div(ng-view)
-
                     div(layout="column", layout-fill, layout-align="top center")
-                        p The left sidenav will 'lock open' on a medium (>=960px wide) device.
-                        p The right sidenav will focus on a specific child element.
-                        div
-                            md-button(ng-click="toggleLeft()", class="md-primary", hide-gt-md) Toggle left
-                        div
-                            md-button(ng-click="toggleRight()", ng-hide="isOpenRight()", class="md-primary") Toggle right
+                        div(ng-view)
 
                     div(flex)
 
-
-                    script(type="text/ng-template" id="Alert.html")
-                        div(class="modal-header")
-                            h3(class="modal-title") Hello
-                        div(class="modal-body") Body
-                        div(class="modal-footer")
-                            button(class="btn btn-primary") OK
-                            button(class="btn btn-warning") Cancel
 
         //- Angular Material requires Angular.js Libraries -->
         script(src="/angular/angular.min.js")
