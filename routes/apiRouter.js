@@ -14,6 +14,7 @@ var apiDatabases = require('./api/databases');
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
     console.log('Time: ', Date.now());
+    console.log('API Req: ', req.url);
     next();
 });
 
@@ -22,7 +23,7 @@ router.use(function timeLog(req, res, next) {
  */
 
 // Define databases API route
-router.get('/databases', apiDatabases);
+router.use('/databases', apiDatabases);
 
 // Export router
 module.exports = router;

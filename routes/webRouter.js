@@ -15,7 +15,7 @@ var routHome = require('./web/home');
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
     console.log('Time: ', Date.now());
-    console.log('Req: ', req.url);
+    console.log('Web Req: ', req.url);
     next();
 });
 
