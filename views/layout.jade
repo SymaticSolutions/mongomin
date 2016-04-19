@@ -11,7 +11,7 @@ html
     body(ng-cloak, ng-app="mongomin.starter", layout="row")
 
         //- Sidebar
-        md-sidenav(class="md-sidenav-left md-whiteframe-z2", md-component-id="leftmenu", md-is-locked-open="$mdMedia('gt-md')", md-disable-backdrop, md-whiteframe="1")
+        md-sidenav(class="md-sidenav-left mm-sidenav md-whiteframe-z1", md-component-id="leftmenu", md-is-locked-open="$mdMedia('gt-md')", role="navigation")
             header(class="nav-header")
                 h1(layout="row", layout-align="center center") mongomin
                 p
@@ -19,16 +19,16 @@ html
 
             md-content(class="_md flex")
                 md-list(ng-controller="DBListCtrl", ng-cloak)
-                    md-subheader(class="md-no-sticky") Available Databases:
+                    md-subheader(class="md-no-sticky md-primary") Available Databases:
                     md-list-item(ng-repeat="db in databases")
                         p {{db.name}}
                         p(class="md-secondary") {{(db.sizeOnDisk/1000000).toFixed(2)}} Kb
 
         div(layout="column", flex="", role="main")
 
-            md-toolbar(class="md-whiteframe-glow-z1")
+            md-toolbar(ng-controller="ToolbarCtrl", class="md-whiteframe-glow-z1")
                 div(class="md-toolbar-tools")
-                    md-button(class="md-icon-button", aria-label="Settings")
+                    md-button(class="md-icon-button", aria-label="Settings", ng-click="toggleSidebar()")
                         md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") menu
                     h2
                         span Toolbar with Disabled/Enabled Icon Buttons
