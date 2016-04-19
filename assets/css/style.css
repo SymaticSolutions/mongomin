@@ -1,3 +1,11 @@
+.mm-sidenav{
+    background: rgb(33,150,243);
+    color: #fff;
+}
+.mm-sidenav md-list-item{
+    min-height: 30px;
+}
+/*
 .material-icons.md-18 { font-size: 18px }
 .material-icons.md-24 { font-size: 24px }
 .material-icons.md-36 { font-size: 36px }
@@ -8,3 +16,4 @@
 
 .material-icons.md-light.md-active { color: rgba(255, 255, 255, 1); cursor: pointer }
 .material-icons.md-light { color: rgba(255, 255, 255, 0.3) }
+*/
