@@ -6,7 +6,12 @@
  */
 
 angular.module('mongomin.starter', ['mongomin.controllers', 'mongomin.services', 'mongomin.directives', 'ngMaterial', 'ngRoute'])
-    .config(function($routeProvider){
+    .config(function($routeProvider, $mdThemingProvider){
+        $mdThemingProvider.theme('default')
+            .primaryPalette('blue');
+            //.accentPalette('green')
+            //.warnPalette('red')
+            //.backgroundPalette('grey');
         $routeProvider.
             when('/test', {
                 templateUrl: '/home',
