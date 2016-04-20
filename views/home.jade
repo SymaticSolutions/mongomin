@@ -1,6 +1,11 @@
-p The left sidenav will 'lock open' on a medium (>=960px wide) device.
-    p The right sidenav will focus on a specific child element.
-    div
-        md-button(ng-click="toggleLeft()", class="md-primary", hide-gt-md) Toggle left
-    div
-        md-button(ng-click="toggleRight()", ng-hide="isOpenRight()", class="md-primary") Toggle right
+md-card
+    md-card-title
+        md-card-title-text
+            span(class="md-headline") Run query
+
+    md-card-content
+        md-input-container(class="md-block")
+            textarea
+
+    md-card-actions(layout="row", layout-align="end center")
+        md-button(class="md-button", aria-label="Favorite") Run
