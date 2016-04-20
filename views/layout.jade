@@ -20,7 +20,7 @@ html
             md-content(class="_md flex")
                 md-list(ng-controller="DBListCtrl", ng-cloak)
                     md-subheader(class="md-no-sticky md-primary") Available Databases:
-                    md-list-item(ng-repeat="db in databases")
+                    md-list-item(ng-repeat="db in databases", ng-href="#/db/{{db.name}}")
                         p {{db.name}}
                         p(class="md-secondary") {{(db.sizeOnDisk/1000000).toFixed(2)}} Kb
 
@@ -28,7 +28,7 @@ html
 
             md-toolbar(ng-controller="ToolbarCtrl", class="md-whiteframe-glow-z1")
                 div(class="md-toolbar-tools")
-                    md-button(class="md-icon-button", aria-label="Settings", ng-click="toggleSidebar()")
+                    md-button(class="md-icon-button", aria-label="Settings", ng-click="toggleSidebar()", hide-gt-md)
                         md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") menu
                     h2
                         span Toolbar with Disabled/Enabled Icon Buttons
@@ -39,17 +39,17 @@ html
                     md-button(class="md-icon-button", aria-label="More")
                         md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") more_vert
 
-
             section(layout="row", flex)
 
                 //- Body content
                 md-content(flex)
 
-                    div(layout="column", layout-fill, layout-align="top center")
+                    div(layout="column", layout-fill)
                         div(ng-view)
 
                     div(flex)
-
+                    div(layout="column", layout-fill, layout-align="bottom center")
+                        p(class="center") Developed with&nbsp;<i class="material-icons" style="font-size:15px;">favorite</i>&nbsp;in India.<br/>mongomin &copy;2016
 
         //- Angular Material requires Angular.js Libraries -->
         script(src="/angular/angular.min.js")
