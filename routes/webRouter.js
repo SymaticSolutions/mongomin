@@ -9,8 +9,9 @@ var express = require('express'),
     router = express.Router();
 
 // Web routes import
-var routRoot = require('./web/root');
-var routHome = require('./web/home');
+var routRoot = require('./web/root'),
+    routHome = require('./web/home'),
+    routDatabase = require('./web/database');
 
 // middleware that is specific to this router
 router.use(function timeLog(req, res, next) {
@@ -23,10 +24,14 @@ router.use(function timeLog(req, res, next) {
  * Web routes
  */
 
+// Define root
 router.use('/', routRoot);
 
 // Define home page route
 router.use('/home', routHome);
+
+// Define database page route
+router.use('/database', routDatabase);
 
 // Export router
 module.exports = router;
