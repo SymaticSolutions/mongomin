@@ -2,9 +2,13 @@
     background: rgb(33,150,243);
     color: #fff;
 }
-.mm-sidenav md-list-item{
+.mm-sidenav md-list-item, .mm-sidenav md-list-item .md-list-item-inner{
     min-height: 30px;
 }
+.mm-sidenav md-list-item .md-button{
+    margin: 0 8px;
+}
+
 /*
 .material-icons.md-18 { font-size: 18px }
 .material-icons.md-24 { font-size: 24px }
