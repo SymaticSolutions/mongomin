@@ -13,9 +13,9 @@ angular.module('mongomin.starter', ['mongomin.controllers', 'mongomin.services',
             //.warnPalette('red')
             //.backgroundPalette('grey');
         $routeProvider.
-            when('/test', {
-                templateUrl: '/home',
-                controller: 'HomeCtrl'
+            when('/db/:DBName', {
+                templateUrl: '/database',
+                controller: 'UseDBCtrl'
             }).
             otherwise({
                 templateUrl: '/home',
