@@ -36,4 +36,9 @@ angular.module('mongomin.controllers', [])
             }, function(res){
 
             });
+    })
+
+    // Use DB controller
+    .controller('UseDBCtrl', function($scope, $http){
+
     });
