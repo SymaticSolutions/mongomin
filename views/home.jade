@@ -9,3 +9,9 @@ md-card
 
     md-card-actions(layout="row", layout-align="end center")
         md-button(class="md-button", aria-label="Favorite") Run
+
+md-list(ng-controller="DBListCtrl", ng-cloak)
+    md-subheader(class="md-no-sticky md-primary") Available Databases:
+    md-list-item(ng-repeat="db in databases", ng-href="#/db/{{db.name}}")
+        p {{db.name}}
+        p(class="md-secondary") {{(db.sizeOnDisk/1000000).toFixed(2)}} Kb
