@@ -16,13 +16,21 @@ html
                 h1(layout="row", layout-align="center center") mongomin
                 p
                     small(layout="row", layout-align="center center") Developed with&nbsp;<i class="material-icons" style="font-size:15px;">favorite</i>&nbsp;in India
+                md-toolbar(ng-controller="ToolbarCtrl", class="md-whiteframe-glow-z1")
+                    div(class="md-toolbar-tools")
+                        span(flex)
+                        md-button(class="md-icon-button", aria-label="Home")
+                            md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") home
 
             md-content(class="_md flex")
                 md-list(ng-controller="DBListCtrl", ng-cloak)
                     md-subheader(class="md-no-sticky md-primary") Available Databases:
-                    md-list-item(ng-repeat="db in databases", ng-href="#/db/{{db.name}}")
-                        p {{db.name}}
-                        p(class="md-secondary") {{(db.sizeOnDisk/1000000).toFixed(2)}} Kb
+                    ul(class="side-menu-db-list")
+                        li(ng-repeat="db in databases")
+                            a(ng-href="#/db/{{db.name}}")
+                                p {{db.name}}
+                                    span(class="pull-right") {{(db.sizeOnDisk/1000000).toFixed(2)}} Kb
+
 
         div(layout="column", flex="", role="main")
 
