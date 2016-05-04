@@ -6,11 +6,13 @@
  */
 
 angular.module('mongomin.controllers', [])
-    .controller('SideToolbarCtrl', function($scope, $mdSidenav, SidebarToolService){
+
+    //Controller for toolbar on sidebar
+    .controller('SideToolbarCtrl', function($scope, $location, $mdSidenav, SidebarToolService){
         $scope.sidebarTools = SidebarToolService;
 
         $scope.gotoHome = function(){
-            alert('');
+            $location.path('/');
         };
 
         console.log('Hello There too');
