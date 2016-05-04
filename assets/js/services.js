@@ -5,4 +5,13 @@
  * @copyright Copyright(c) 2016 Symatic Solutions
  */
 
-angular.module('mongomin.services', []);
+angular.module('mongomin.services', [])
+    .factory('SidebarToolService', function(){
+        return [
+            {
+                'label' : 'Home',
+                'icon' : 'home',
+                'clickAction' : 'gotoHome'
+            }
+        ]
+    });

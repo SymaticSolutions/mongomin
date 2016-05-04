@@ -6,8 +6,18 @@
  */
 
 angular.module('mongomin.controllers', [])
+    .controller('SideToolbarCtrl', function($scope, $mdSidenav, SidebarToolService){
+        $scope.sidebarTools = SidebarToolService;
+
+        $scope.gotoHome = function(){
+            alert('');
+        };
+
+        console.log('Hello There too');
+    })
+
     // Toolbar controller
-    .controller('ToolbarCtrl', function($scope, $mdSidenav, $mdMedia){
+    .controller('ToolbarCtrl', function($scope, $mdSidenav){
         $scope.toggleSidebar = function(){
             $mdSidenav('leftmenu')
                 .toggle()
@@ -15,7 +25,7 @@ angular.module('mongomin.controllers', [])
                     console.log('done');
                     //$log.debug("toggle " + navID + " is done");
                 });
-        }
+        };
     })
 
     // Home controller

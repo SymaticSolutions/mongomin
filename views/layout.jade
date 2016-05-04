@@ -16,11 +16,11 @@ html
                 h1(layout="row", layout-align="center center") mongomin
                 p
                     small(layout="row", layout-align="center center") Developed with&nbsp;<i class="material-icons" style="font-size:15px;">favorite</i>&nbsp;in India
-                md-toolbar(ng-controller="ToolbarCtrl", class="md-whiteframe-glow-z1")
+                md-toolbar(ng-controller="SideToolbarCtrl", class="md-whiteframe-glow-z1")
                     div(class="md-toolbar-tools")
                         span(flex)
-                        md-button(class="md-icon-button", aria-label="Home")
-                            md-icon(class="material-icons md-24 md-light", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-class="active") home
+                        md-button(class="md-icon-button", ng-repeat="tool in sidebarTools" aria-label="tool.label")
+                            md-icon(class="material-icons md-24 md-light", ng-class="active", ng-mouseover="active='md-active'", ng-mouseout="active=''", ng-click="this[tool.clickAction]()") {{tool.icon}}
 
             md-content(class="_md flex")
                 md-list(ng-controller="DBListCtrl", ng-cloak)
